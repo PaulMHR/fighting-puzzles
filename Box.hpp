@@ -1,6 +1,6 @@
 #include "Utils.hpp"
 
-class Box: public GameObject{
+class Box: public RenderObject{
     public:
         static const int RENDER_SIZE = 46;
         static const int RENDER_OFFSET = 2;
