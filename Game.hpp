@@ -1,6 +1,4 @@
-
-//import { Box } from './Box';
-//import { EnumFlags } from './Utils';
+#pragma once
 
 #include <vector>
 #include <SFML/Graphics.hpp>
@@ -13,7 +11,8 @@ class Game {
 public:
     static void update(float deltaTime);
     static void draw(sf::RenderWindow& window);
-    // static void registerGameObject(GOPtr o);
+    static void registerRenderObject(ROPtr&& o);
+    static void registerBehaviourObject(BOPtr&& o);
     static void handleInput();
 
 private:

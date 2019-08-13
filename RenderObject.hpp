@@ -1,5 +1,5 @@
-#ifndef RENDER_OBJECT
-#define RENDER_OBJECT
+
+#pragma once
 
 #include <memory>
 #include <SFML/Graphics.hpp>
@@ -10,4 +10,3 @@ public:
 };
 
 typedef std::shared_ptr<RenderObject> ROPtr;
-#endif

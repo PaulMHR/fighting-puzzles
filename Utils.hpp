@@ -1,14 +1,4 @@
-//  Previous typescript code
-// export interface Colour {
-//     c : string,
-// }
-//
-// export interface Coord {
-//     x : number,
-//     y : number,
-//     f : number,
-// }
-using namespace std;
+#pragma once
 
 enum Colour {
     GREEN,
