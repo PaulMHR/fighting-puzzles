@@ -6,7 +6,8 @@
 #include <SFML/Graphics.hpp>
 
 #include "Input.hpp"
-#include "GameObject.hpp"
+#include "RenderObject.hpp"
+#include "BehaviourObject.hpp"
 
 class Game {
 public:
@@ -16,7 +17,8 @@ public:
     static void handleInput();
 
 private:
-    static std::vector<GOPtr> gameObjects; //Should be GameObject
+    static std::vector<ROPtr> renderObjects;
+    static std::vector<BOPtr> behaviourObjects;
     //static Box b;
     //static input : EnumFlags<Input> = new EnumFlags<Input>();
 };

@@ -1,9 +1,10 @@
 #include <chrono>
+#include <thread>
 
 #include <SFML/Graphics.hpp>
 #include "Game.hpp"
 
-const float MIN_FRAME_LENGTH = 10;
+const float MIN_FRAME_LENGTH = 16;
 
 int main()
 {
@@ -26,10 +27,14 @@ int main()
 
         newTime = std::chrono::steady_clock::now();
         deltaTime = std::chrono::duration_cast<std::chrono::milliseconds>(newTime - oldTime).count();
-        oldTime = newTime;
         if (deltaTime < MIN_FRAME_LENGTH) {
+            auto sleep_time = std::chrono::milliseconds(static_cast<int>(MIN_FRAME_LENGTH - deltaTime));
+            if (sleep_time > std::chrono::milliseconds(0)) {
+                std::this_thread::sleep_for(sleep_time);
+            }
             continue;
         }
+        oldTime = newTime;
         Game::update(deltaTime);
         Game::draw(window);
         window.display();
