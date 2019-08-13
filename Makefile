@@ -7,7 +7,7 @@ SDIR = src
 INC = -Iinc -lGL -lsfml-graphics -lsfml-window -lsfml-system
 OUT = PuzzleFight
 
-OBJS = main.o Game.o GameObject.o
+OBJS = main.o Game.o GameObject.o BehaviourObject.o RenderObject.o Utils.o Input.o
 
 
 .PHONY: all clean

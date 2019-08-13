@@ -1,6 +1,7 @@
 #include "Game.hpp"
 
-std::vector<GOPtr> Game::gameObjects;
+std::vector<BOPtr> Game::behaviourObjects;
+std::vector<ROPtr> Game::renderObjects;
 
 // void Game::registerGameObject(GOPtr o) {
 //     gameObjects.push_back(o);
@@ -34,7 +35,7 @@ std::vector<GOPtr> Game::gameObjects;
 void Game::update(float deltaTime) {
     // Main.handleInput();
 
-    for (GOPtr& o : gameObjects) {
+    for (BOPtr& o : behaviourObjects) {
         o->update(deltaTime);
     }
 }
@@ -46,7 +47,7 @@ void Game::draw(sf::RenderWindow& window) {
     window.draw(shape);
     //console.debug("Drawing " + gameObjects.length + " items");
     // DON'T FORGET TO LOCK THIS WHEN SWITCHING TO MULTITHREADED
-    for (const GOPtr& o : gameObjects) {
+    for (const ROPtr& o : renderObjects) {
         o->draw(window);
     }
 }
