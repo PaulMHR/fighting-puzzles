@@ -10,4 +10,6 @@ class Coord {
         int x;
         int y;
         int f;
+        Coord();
+        Coord(int, int, int);
 };
