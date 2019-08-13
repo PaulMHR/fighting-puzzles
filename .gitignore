@@ -1,4 +1,5 @@
 obj/*
+SFML/*
 *.code-workspace
 PuzzleFight
 Makefile

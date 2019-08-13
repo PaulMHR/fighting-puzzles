@@ -11,4 +11,4 @@ class GameObject {
         bool enabled;
         virtual void draw() = 0;
         virtual void update(int delta) = 0;
-}
+};
