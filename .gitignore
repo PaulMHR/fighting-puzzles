@@ -1,0 +1,4 @@
+obj/*
+*.code-workspace
+PuzzleFight
+Makefile
