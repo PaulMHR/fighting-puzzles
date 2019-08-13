@@ -2,3 +2,5 @@
 SFML/*
 *.code-workspace
 PuzzleFight
+*.dll
+*.exe
