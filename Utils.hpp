@@ -1,3 +1,5 @@
+#pragma once
+
 class Colour {
     public:
         char c[20];

@@ -1,4 +1,7 @@
+#pragma once
+
 #include <memory>
+#include "Input.hpp"
 
 class BehaviourObject {
 public:

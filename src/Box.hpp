@@ -1,4 +1,4 @@
-
+#pragma once
 
 #include "GameObject.hpp"
 #include "Input.hpp"
