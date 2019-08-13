@@ -8,11 +8,12 @@
 //     y : number,
 //     f : number,
 // }
-
+using namespace std;
 
 class Colour {
     public:
-        char c[20];
+        string c;
+        Colour(string c): c(c){}
 };
 
 class Coord {
@@ -20,4 +21,5 @@ class Coord {
         int x;
         int y;
         int f;
+        Coord(int x, int y, int f): x(x), y(y), f(f){}
 };
