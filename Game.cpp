@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include "Box.hpp"
 
 std::vector<GOPtr> Game::gameObjects;
 
@@ -40,7 +41,7 @@ void Game::update(float deltaTime) {
 }
 
 void Game::draw(sf::RenderWindow& window) {
-    
+
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
     window.draw(shape);
