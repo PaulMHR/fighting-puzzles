@@ -1,11 +1,15 @@
 #include "Game.hpp"
 
-std::vector<BOPtr> Game::behaviourObjects;
 std::vector<ROPtr> Game::renderObjects;
+std::vector<BOPtr> Game::behaviourObjects;
 
-// void Game::registerGameObject(GOPtr o) {
-//     gameObjects.push_back(o);
-// }
+void Game::registerRenderObject(ROPtr&& o) {
+    renderObjects.push_back(std::move(o));
+}
+
+void Game::registerBehaviourObject(BOPtr&& o) {
+    behaviourObjects.push_back(std::move(o));
+}
 
 // void Game::handleInput() {
     //     switch (event.key) {
