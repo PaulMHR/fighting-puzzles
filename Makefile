@@ -16,5 +16,5 @@ all: $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(OUT) $(OBJS) $(INC)
 
 clean:
-	rm $(ODIR)/*.o $(OUT)
+	rm *.o $(OUT)
 
