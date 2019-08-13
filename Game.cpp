@@ -4,6 +4,7 @@
 std::vector<BOPtr> Game::behaviourObjects;
 std::vector<ROPtr> Game::renderObjects;
 
+
 // void Game::registerGameObject(GOPtr o) {
 //     gameObjects.push_back(o);
 // }
@@ -43,10 +44,12 @@ void Game::update(float deltaTime) {
 
 void Game::draw(sf::RenderWindow& window) {
 
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-    window.draw(shape);
-    //console.debug("Drawing " + gameObjects.length + " items");
+    Box test_box = Box();
+    test_box.draw(window);
+    // sf::CircleShape shape(100.f);
+    // shape.setFillColor(sf::Color::Green);
+    // window.draw(shape);
+    // console.debug("Drawing " + gameObjects.length + " items");
     // DON'T FORGET TO LOCK THIS WHEN SWITCHING TO MULTITHREADED
     for (const ROPtr& o : renderObjects) {
         o->draw(window);

@@ -10,11 +10,12 @@
 // }
 using namespace std;
 
-// class Colour {
-//     public:
-//         string c;
-//         Colour(string c): c(c){}
-// };
+enum Colour {
+    GREEN,
+    BLUE,
+    RED,
+    YELLOW
+};
 
 class Coord {
     public:

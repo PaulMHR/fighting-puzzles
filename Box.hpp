@@ -1,4 +1,6 @@
 #include "Utils.hpp"
+#include "RenderObject.hpp"
+#include <SFML/Graphics.hpp>
 
 class Box: public RenderObject{
     public:
@@ -6,16 +8,19 @@ class Box: public RenderObject{
         static const int RENDER_OFFSET = 2;
         Coord coord = Coord(0 ,0, 0);
 
+        Box();
+        ~Box();
         void update(int);
-        void draw(sf::RenderWindow);
+        void draw(sf::RenderWindow&);
 
     private:
 
-        //Colour colour = Colour("green");
+        Colour colour = GREEN;
         static const int RENDER_SPACE = RENDER_SIZE + (RENDER_OFFSET * 2);
         static const int PLAYING_SPACE_X = RENDER_SPACE * 6;
         static const int PLAYING_SPACE_Y = RENDER_SPACE * 12;
         static const int MS_PER_BLOCK = 700;
+        bool enabled = true;
 
 };
 
