@@ -7,8 +7,6 @@
 #include "Box.hpp"
 #include "BehaviourObject.hpp"
 
-typedef std::shared_ptr<Box> BPtr;
-
 class Board : public BehaviourObject, public RenderObject {
 public:
     virtual void update(float deltaTime);

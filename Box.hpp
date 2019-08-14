@@ -20,3 +20,5 @@ class Box: public RenderObject {
         static const int PLAYING_SPACE_X = RENDER_SPACE * 6;
         static const int PLAYING_SPACE_Y = RENDER_SPACE * 12;
 };
+
+typedef std::shared_ptr<Box> BPtr;
