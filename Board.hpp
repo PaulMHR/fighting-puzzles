@@ -10,7 +10,7 @@ class Board : public BehaviourObject, public RenderObject {
 public:
     virtual void update(float deltaTime);
     virtual void handleInput(Input input);
-    virtual void draw(sf::RenderWindow window);
+    virtual void draw(sf::RenderWindow& window);
 
     Board();
     virtual ~Board();
@@ -21,9 +21,10 @@ private:
     // Milliseconds per block
     static constexpr float FALL_SPEED = 700.;
 
-    class Grid {
+    class Grid : public RenderObject {
     public:
         BPtr get(int row, int col);
+        void draw(sf::RenderWindow& window);
         Grid();
         virtual ~Grid();
 

@@ -9,10 +9,11 @@
 
 class Game {
 public:
+    static void start();
     static void update(float deltaTime);
     static void draw(sf::RenderWindow& window);
-    static void registerRenderObject(ROPtr&& o);
-    static void registerBehaviourObject(BOPtr&& o);
+    static void registerRenderObject(ROPtr o);
+    static void registerBehaviourObject(BOPtr o);
     static void handleInput();
 
 private:

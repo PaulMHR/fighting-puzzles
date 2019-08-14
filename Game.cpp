@@ -1,14 +1,15 @@
 #include "Game.hpp"
 #include "Box.hpp"
+#include "Board.hpp"
 
 std::vector<ROPtr> Game::renderObjects;
 std::vector<BOPtr> Game::behaviourObjects;
 
-void Game::registerRenderObject(ROPtr&& o) {
+void Game::registerRenderObject(ROPtr o) {
     renderObjects.push_back(std::move(o));
 }
 
-void Game::registerBehaviourObject(BOPtr&& o) {
+void Game::registerBehaviourObject(BOPtr o) {
     behaviourObjects.push_back(std::move(o));
 }
 
@@ -58,4 +59,10 @@ void Game::draw(sf::RenderWindow& window) {
     for (const ROPtr& o : renderObjects) {
         o->draw(window);
     }
+}
+
+void Game::start() {
+    auto board = std::make_shared<Board>();
+    registerBehaviourObject(board);
+    registerRenderObject(board);
 }

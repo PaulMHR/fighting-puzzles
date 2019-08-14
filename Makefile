@@ -8,7 +8,7 @@ INC = -Iinc -lGL -lsfml-graphics -lsfml-window -lsfml-system
 OUT = PuzzleFight
 
 
-OBJS = main.o Game.o GameObject.o BehaviourObject.o RenderObject.o Utils.o Input.o Box.o
+OBJS = main.o Game.o BehaviourObject.o RenderObject.o Utils.o Input.o Box.o Board.o
 
 
 
