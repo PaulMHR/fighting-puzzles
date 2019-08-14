@@ -1,8 +1,10 @@
 #pragma once
 
-class Colour {
-    public:
-        char c[20];
+enum Colour {
+    GREEN,
+    BLUE,
+    RED,
+    YELLOW
 };
 
 class Coord {
