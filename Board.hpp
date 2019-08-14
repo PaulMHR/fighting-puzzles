@@ -1,3 +1,5 @@
+#pragma once
+
 #include <memory>
 #include <random>
 #include <SFML/Graphics.hpp>
@@ -21,6 +23,8 @@ private:
     static const int BOARD_WIDTH = 6;
     // Milliseconds per block
     static constexpr float FALL_SPEED = 700.;
+
+    static Coord STARTING_MAIN[2];
 
     class Grid : public RenderObject {
     public:

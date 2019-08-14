@@ -1,5 +1,7 @@
 #include "Board.hpp"
 
+Coord Board::STARTING_MAIN[2] = {{2, 12, 0}, {2, 13, 0}};
+
 // Hopefully arrays of weak_ptr are default-initialized
 Board::Board() {
     generateFalling();
@@ -16,7 +18,7 @@ void Board::Grid::draw(sf::RenderWindow& window) {
     }
 }
 
-Board::RandomGen::RandomGen(): rd(), gen(rd()), uniform(0,3) {}
+Board::RandomGen::RandomGen(): uniform(0,3), rd(), gen(rd()) {}
 
 Colour Board::RandomGen::colour() {
     return (Colour)uniform(gen);
@@ -54,5 +56,9 @@ void Board::explode() {
 }
 
 void Board::generateFalling() {
-
+    for (int i = 0; i < 2; ++i) {
+        falling[i] = std::make_shared<Box>();
+        falling[i]->coord = STARTING_MAIN[i];
+        falling[i]->colour = randomGen.colour();
+    }
 }

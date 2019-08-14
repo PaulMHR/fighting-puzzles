@@ -14,6 +14,8 @@ int main()
     auto newTime = oldTime;
     float deltaTime;
 
+    Game::start();
+
     while (window.isOpen())
     {
         sf::Event event;

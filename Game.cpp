@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "Game.hpp"
 #include "Box.hpp"
 #include "Board.hpp"
@@ -35,13 +37,6 @@ void Game::update(float deltaTime) {
 }
 
 void Game::draw(sf::RenderWindow& window) {
-
-    Box test_box = Box();
-    test_box.draw(window);
-    // sf::CircleShape shape(100.f);
-    // shape.setFillColor(sf::Color::Green);
-    // window.draw(shape);
-    // console.debug("Drawing " + gameObjects.length + " items");
     // DON'T FORGET TO LOCK THIS WHEN SWITCHING TO MULTITHREADED
     for (const ROPtr& o : renderObjects) {
         o->draw(window);

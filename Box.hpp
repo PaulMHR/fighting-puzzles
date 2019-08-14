@@ -9,13 +9,13 @@ class Box: public RenderObject {
         static const int RENDER_SIZE = 46;
         static const int RENDER_OFFSET = 2;
         Coord coord = Coord(0 ,0, 0);
+        Colour colour = GREEN;
 
         Box();
         ~Box();
         void draw(sf::RenderWindow&);
 
     private:
-        Colour colour = GREEN;
         static const int RENDER_SPACE = RENDER_SIZE + (RENDER_OFFSET * 2);
         static const int PLAYING_SPACE_X = RENDER_SPACE * 6;
         static const int PLAYING_SPACE_Y = RENDER_SPACE * 12;
