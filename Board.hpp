@@ -28,7 +28,8 @@ private:
 
     class Grid : public RenderObject {
     public:
-        BPtr get(int row, int col);
+        BPtr& get(const Coord& coord);
+        void set(BPtr&& box);
         void draw(sf::RenderWindow& window);
         Grid();
         virtual ~Grid();
