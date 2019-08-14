@@ -16,6 +16,12 @@ void Board::Grid::draw(sf::RenderWindow& window) {
     }
 }
 
+Board::RandomGen::RandomGen(): rd(), gen(rd()), uniform(0,3) {}
+
+Colour Board::RandomGen::colour() {
+    return (Colour)uniform(gen);
+}
+
 void Board::update(float deltaTime) {
     for (BPtr box : falling) {
         box->coord.f -= (deltaTime / FALL_SPEED);

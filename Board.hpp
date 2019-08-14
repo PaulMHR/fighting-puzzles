@@ -1,4 +1,5 @@
 #include <memory>
+#include <random>
 #include <SFML/Graphics.hpp>
 
 #include "Box.hpp"
@@ -27,7 +28,6 @@ private:
         void draw(sf::RenderWindow& window);
         Grid();
         virtual ~Grid();
-
     private:
         BPtr grid[BOARD_HEIGHT * BOARD_WIDTH];
     } grid;
@@ -37,4 +37,14 @@ private:
     void placeFalling();
     void explode();
     void generateFalling();
+
+    class RandomGen {
+    public:
+        Colour colour();
+        RandomGen();
+    private:
+        std::uniform_int_distribution<> uniform;
+        std::random_device rd;
+        std::mt19937 gen;
+    } randomGen;
 };
