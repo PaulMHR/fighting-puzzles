@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Game.hpp"
+#include "Input.hpp"
 
 const float MIN_FRAME_LENGTH = 16;
 
@@ -21,6 +22,23 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
             // Add input
+            if (event.type == sf::Event::KeyPressed)
+            {
+                // determine which key was pressed
+                Input keypress;
+                switch (event.key.code) {
+                    case sf::Keyboard::Key::W: keypress = Input(Drop); break;
+                    case sf::Keyboard::Key::A: keypress = Input(Left); break;
+                    case sf::Keyboard::Key::S: keypress = Input(Down); break;
+                    case sf::Keyboard::Key::D: keypress = Input(Right); break;
+                    case sf::Keyboard::Key::E: keypress = Input(RotateRight); break;
+                    case sf::Keyboard::Key::Q: keypress = Input(RotateLeft); break;
+                    default:
+                        continue;
+                }
+                // pass along to game
+                Game::addInput(keypress);
+            }
         }
 
         window.clear();
