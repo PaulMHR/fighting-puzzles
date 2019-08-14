@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <queue>
 #include <SFML/Graphics.hpp>
 
 #include "Input.hpp"
@@ -14,10 +15,12 @@ public:
     static void registerRenderObject(ROPtr&& o);
     static void registerBehaviourObject(BOPtr&& o);
     static void handleInput();
+    static void addInput(Input keypress);
 
 private:
     static std::vector<ROPtr> renderObjects;
     static std::vector<BOPtr> behaviourObjects;
+    static std::queue<Input> inputQueue;
     //static Box b;
     //static input : EnumFlags<Input> = new EnumFlags<Input>();
 };

@@ -12,34 +12,20 @@ void Game::registerBehaviourObject(BOPtr&& o) {
     behaviourObjects.push_back(std::move(o));
 }
 
+void Game::handleInput() {
+    while (!inputQueue.empty()) {
+        Input keypress = inputQueue.front();
+        inputQueue.pop();
+        // process keypress
+    }
+}
 
-// void Game::handleInput() {
-    //     switch (event.key) {
-    //         case "ArrowLeft":
-    //             input.set(Input.Left);
-    //         case "ArrowRight":
-    //             input.set(Input.Right);
-    //         case "ArrowUp":
-    //             input.set(Input.Drop);
-    //         case "ArrowDown":
-    //             input.set(Input.Down);
-    //         case "Z":
-    //             input.set(Input.RotateLeft);
-    //         case "X":
-    //             input.set(Input.RotateRight);
-    //     }
-//     Main.b.takeInput(input);
-
-//     input.unset(Input.Left);
-//     input.unset(Input.Right);
-//     input.unset(Input.Down);
-//     input.unset(Input.Drop);
-//     input.unset(Input.RotateLeft);
-//     input.unset(Input.RotateRight);
-// }
+void Game::addInput(Input keypress) {
+    inputQueue.push(keypress);
+}
 
 void Game::update(float deltaTime) {
-    // Main.handleInput();
+    Game::handleInput();
 
     for (BOPtr& o : behaviourObjects) {
         o->update(deltaTime);

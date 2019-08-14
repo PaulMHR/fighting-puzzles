@@ -37,6 +37,7 @@ int main()
                         continue;
                 }
                 // pass along to game
+                Game::addInput(keypress);
             }
         }
 
