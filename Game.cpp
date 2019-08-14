@@ -3,6 +3,7 @@
 
 std::vector<ROPtr> Game::renderObjects;
 std::vector<BOPtr> Game::behaviourObjects;
+std::queue<Input> Game::inputQueue;
 
 void Game::registerRenderObject(ROPtr&& o) {
     renderObjects.push_back(std::move(o));
