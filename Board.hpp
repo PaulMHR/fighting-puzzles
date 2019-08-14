@@ -26,15 +26,9 @@ private:
 
     static Coord STARTING_MAIN[2];
 
-    class Grid : public RenderObject {
+    class BoxGrid : public Grid<BOARD_HEIGHT, BOARD_WIDTH, BPtr>, public RenderObject {
     public:
-        BPtr& get(const Coord& coord);
-        void set(BPtr&& box);
         void draw(sf::RenderWindow& window);
-        Grid();
-        virtual ~Grid();
-    private:
-        BPtr grid[BOARD_HEIGHT * BOARD_WIDTH];
     } grid;
 
     BPtr falling[2]; //Primary in 0, secondary in 1

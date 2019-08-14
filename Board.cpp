@@ -7,22 +7,8 @@ Board::Board() {
     generateFalling();
 }
 Board::~Board() {}
-Board::Grid::Grid() {}
-Board::Grid::~Grid() {}
 
-BPtr& Board::Grid::get(const Coord& coord) {
-    int row = coord.x;
-    int col = coord.y;
-    return grid[row * BOARD_HEIGHT + col];
-}
-
-void Board::Grid::set(BPtr&& box) {
-    int row = box->coord.x;
-    int col = box->coord.y;
-    grid[row * BOARD_HEIGHT + col] = std::move(box);
-}
-
-void Board::Grid::draw(sf::RenderWindow& window) {
+void Board::BoxGrid::draw(sf::RenderWindow& window) {
     for (BPtr box : grid) {
         if (box != nullptr) {
             box->draw(window);
