@@ -21,6 +21,9 @@ void Game::handleInput() {
         Input keypress = inputQueue.front();
         inputQueue.pop();
         // process keypress
+        for (const BOPtr& o : behaviourObjects) {
+            o->handleInput(keypress);
+        }
     }
 }
 

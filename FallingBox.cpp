@@ -56,8 +56,8 @@ void FallingBox::rotateRight() {
             break;
         case RIGHTWARD:
             direction = Orientation(DOWNWARD);
-            peripheral->coord.x += 1;
-            peripheral->coord.y += 1;
+            peripheral->coord.x -= 1;
+            peripheral->coord.y -= 1;
             break;
         case DOWNWARD:
             direction = Orientation(LEFTWARD);
@@ -66,8 +66,8 @@ void FallingBox::rotateRight() {
             break;
         case LEFTWARD:
             direction = Orientation(UPWARD);
-            peripheral->coord.x -= 1;
-            peripheral->coord.y -= 1;
+            peripheral->coord.x += 1;
+            peripheral->coord.y += 1;
             break;
     }
 }
@@ -77,22 +77,22 @@ void FallingBox::rotateLeft() {
         case UPWARD:
             direction = Orientation(LEFTWARD);
             peripheral->coord.x -= 1;
-            peripheral->coord.y += 1;
+            peripheral->coord.y -= 1;
             break;
         case LEFTWARD:
             direction = Orientation(DOWNWARD);
             peripheral->coord.x += 1;
-            peripheral->coord.y += 1;
+            peripheral->coord.y -= 1;
             break;
         case DOWNWARD:
             direction = Orientation(RIGHTWARD);
             peripheral->coord.x += 1;
-            peripheral->coord.y -= 1;
+            peripheral->coord.y += 1;
             break;
         case RIGHTWARD:
             direction = Orientation(UPWARD);
             peripheral->coord.x -= 1;
-            peripheral->coord.y -= 1;
+            peripheral->coord.y += 1;
             break;
     }
 }
