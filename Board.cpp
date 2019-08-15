@@ -23,29 +23,31 @@ Colour Board::RandomGen::colour() {
 }
 
 void Board::update(float deltaTime) {
-    for (BPtr box : falling) {
-        box->coord.f -= (deltaTime / FALL_SPEED);
-    }
-    if (falling[0]->coord.y < 0) {
+    falling.update(deltaTime);
+    if (falling.lowestPoint() < 0) {
         placeFalling();
     }
 }
 
 void Board::handleInput(Input input) {
-
+    if (input != Input(Drop)) {
+        falling.handleInput(input);
+    } else {
+        // TODO: make blocks drop full distance.
+        // probably with looping and passing "down"s
+    }
 }
 
 void Board::draw(sf::RenderWindow& window) {
     grid.draw(window);
-    for (BPtr box : falling) {
-        box->draw(window);
-    }
+    falling.draw(window);
 }
 
 void Board::placeFalling() {
-    for (BPtr box : falling) {
-        grid.set(std::move(box));
-    }
+    BPtr box = falling.getCentre();
+    grid.set(std::move(box));
+    box = falling.getPeripheral();
+    grid.set(std::move(box));
 
     explode();
     generateFalling();
@@ -56,9 +58,13 @@ void Board::explode() {
 }
 
 void Board::generateFalling() {
-    for (int i = 0; i < 2; ++i) {
-        falling[i] = std::make_shared<Box>();
-        falling[i]->coord = STARTING_MAIN[i];
-        falling[i]->colour = randomGen.colour();
-    }
+    BPtr first_box = std::make_shared<Box>();
+    first_box->coord = STARTING_MAIN[0];
+    first_box->colour = randomGen.colour();
+
+    BPtr second_box = std::make_shared<Box>();
+    second_box->coord = STARTING_MAIN[1];
+    second_box->colour = randomGen.colour();
+
+    falling.newBoxes(first_box, second_box);
 }

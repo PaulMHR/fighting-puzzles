@@ -9,6 +9,13 @@ enum Colour {
     YELLOW
 };
 
+enum Orientation {
+    UPWARD,
+    LEFTWARD,
+    RIGHTWARD,
+    DOWNWARD
+};
+
 class Coord {
     public:
         int x;

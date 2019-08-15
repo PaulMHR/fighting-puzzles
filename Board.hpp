@@ -6,6 +6,7 @@
 
 #include "Box.hpp"
 #include "BehaviourObject.hpp"
+#include "FallingBox.hpp"
 
 class Board : public BehaviourObject, public RenderObject {
 public:
@@ -29,7 +30,7 @@ private:
         void draw(sf::RenderWindow& window);
     } grid;
 
-    BPtr falling[2]; //Primary in 0, secondary in 1
+    FallingBox falling;
 
     void placeFalling();
     void explode();
